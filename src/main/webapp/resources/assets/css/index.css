@@ -1,0 +1,214 @@
+	html, body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+a {
+    color: #fff;
+}
+a:hover {
+    color: #b3b5b8;
+    text-decoration: none;
+}
+.navbar-text.navbar-right:last-child {
+    font-size: 18px;
+    margin-right: 20px;
+}
+.navbar-link {
+}
+.navbar-link:hover {
+    color: #b3b5b8;
+}
+.btn-dark {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    color: #504f4e;
+    font-size: 18px;
+    line-height: 1.33;
+    margin-left: 10px;
+    padding: 10px 55px;
+	text-decoration:none;
+}
+.btn-dark:hover, .btn-dark:focus, .btn-dark:active {
+    background-color: #fff;
+    color: #504f4e;
+}
+.btn-dark_menu {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.33;
+}
+.btn-dark_menu:hover, .btn-dark_menu:focus, .btn-dark_menu:active {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+.btn-light {
+    background-color: rgb(255, 255, 255);
+    border-radius: 0;
+    color: #333;
+}
+.btn-light:hover, .btn-light:focus, .btn-light:active {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+#sidebar-wrapper {
+    background: none repeat scroll 0 0 #222;
+    height: 100%;
+    margin-right: -250px;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    transition: all 0.4s ease 0s;
+    width: 250px;
+    z-index: 1000;
+}
+.sidebar-nav {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 250px;
+}
+.sidebar-nav li {
+    line-height: 40px;
+    text-indent: 20px;
+}
+.sidebar-nav li a {
+    color: #999;
+    display: block;
+    text-decoration: none;
+}
+.sidebar-nav li a:hover {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+}
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+    text-decoration: none;
+}
+.sidebar-nav > .sidebar-brand {
+    font-size: 18px;
+    height: 55px;
+    line-height: 55px;
+}
+.sidebar-nav > .sidebar-brand a {
+    color: #999;
+}
+.sidebar-nav > .sidebar-brand a:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #fff;
+}
+#menu-toggle {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+#sidebar-wrapper.active {
+    right: 250px;
+    transition: all 0.4s ease 0s;
+    width: 250px;
+}
+.toggle {
+    margin: 5px 5px 0 0;
+}
+.home_header {
+    background: url("/bg.jpg") no-repeat scroll center center / cover rgba(0, 0, 0, 0);
+    display: table;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+.text-vertical-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.text-vertical-center h1 {
+    font-weight: 300;
+    margin: 0;
+}
+.home_logo {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 5px;
+}
+.home_slogan {
+    color: #ffffff;
+    font-size: 52px;
+    padding: 22px 0;
+    text-align: center;
+}
+
+.log{
+ color: #fff;
+    font-size: 18px;
+    text-align: right;
+    float: right
+}
+@media screen and (min-width: 0px) and (max-width: 320px) {
+.home_logo {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    padding: 5px;
+    width: 93%;
+}
+.home_slogan {
+    color: #ffffff;
+    font-size: 24px;
+    padding: 12px 0;
+    text-align: center;
+}
+.btn-dark {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    color: #504f4e;
+    font-size: 16px;
+    line-height: 1.33;
+    margin-left: 5px;
+    padding: 10px 15px;
+}
+}
+
+@media screen and (min-width: 321px) and (max-width: 480px) {
+.home_logo {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    padding: 5px;
+    width: 93%;
+}
+.home_slogan {
+    color: #ffffff;
+    font-size: 24px;
+    padding: 12px 0;
+    text-align: center;
+}
+.btn-dark {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    color: #504f4e;
+    font-size: 16px;
+    line-height: 1.33;
+    margin-left: 5px;
+    padding: 10px 15px;
+}
+}
+@media (min-width: 767px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+}
+@media (min-width: 1920px) {
+}

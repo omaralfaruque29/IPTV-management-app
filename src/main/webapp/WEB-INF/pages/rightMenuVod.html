@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Livestreamer</title>
+
+
+</head>
+<body>
+
+	<div tiles:fragment="right" class="hidden-sm col-sm-2 hidden-xs col-xs-2 col-md-2 col-lg-2">
+		<div class="p-left">
+			<div class="thumble-box"
+				th:each="latestVod : ${latestVodList}">
+				<div class="thumble-img">
+					<a th:href="@{'/page/vodPlay/'+${latestVod.videoId}}">
+						<img th:src="@{~/images/}+${latestVod.poster}" width="150px"
+						height="100px" />
+					</a>
+				</div>
+				<div class="thumble-bottom">
+					<div class="thumble-description thumble-tex">
+						<a th:href="@{'/page/vodPlay/'+${latestVod.videoId}}">
+							<strong class="channel-tex"
+							th:text="${latestVod.videoName}"></strong>
+						</a> <br />
+						<!-- Description: by ATN TV &nbsp;&nbsp; Total Views: 28968 -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+ul.list { list-style: none; width: 100%;padding-left: 0; }
+ul.list li { display: block; border-top:1px solid #e0e0e0; padding: 10px 0px; }
+
+ul.list li.alt {  }
+
+ul.list li section.left { display: block; float: left; width: 215px; position: relative;}
+ul.list li section.right { display: block; float: right; margin-right: 10px; width: 83%; text-align: left; }
+
+ul.list li section.left img.thumb { float: left; margin-right: 10px; }
+ul.list li section.left img.featured-banner { position: absolute; left: -18px; top: 35px; }
+
+ul.list li section.left h3 { font-family: "Trebuchet MS", Arial, sans-serif; font-weight: bold; text-transform: uppercase; color: #707375; font-size: 1.4em; line-height: 1.6em; } 
+ul.list li section.left span.meta { color: #93989b; font-weight: normal; font-size: 1.1em; }
+
+
+ul.list li section.right span.price { font-weight: bold; display: block; margin-bottom: 15px; color: black; font-size: 1.6em; text-align: left; }
+
+ul.list li section.right a.firstbtn { margin-right: 7px; }
+
+/** grid view **/
+ul.grid { list-style: none; margin: 0 auto; padding-left: 0px; }
+ul.grid li { position: relative; display: block; float: left; width: 271px; height: 266px; 
+          padding: 5px 20px 3px 0; margin-bottom: 20px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+font-size:12px;}
+ul.grid li.third { border: 0; }
+
+ul.grid li section.left { position: relative; }
+ul.grid li section.right { /* nothing */ }
+
+ul.grid li section.left img.featured-banner { position: absolute; top: 0; }
+
+ul.grid li section.left h3 { font-family: "Trebuchet MS", Arial, sans-serif; font-weight: bold; text-transform: uppercase; color: #707375; font-size: 1.4em; line-height: 1.5em; } 
+ul.grid li section.left span.meta { display: block; color: #93989b; font-weight: normal; font-size: 1.1em; margin-bottom: 7px; }
+ul.grid li section.right span.price { font-weight: bold; display: block; margin-bottom: 5px; color: #ad3939; font-size: 1.75em; }
+
+
+ul.grid li section.right span.darkview { 
+opacity: 0;
+margin: 0; 
+position: absolute;
+top: 0; 
+left: 0; 
+width: 190px; 
+height: 200px;
+margin: 0 15px; 
+border-radius: 6px;
+overflow: hidden;
+text-align: center;
+padding-top: 35px;
+box-sizing: border-box; 
+-moz-box-sizing: border-box; 
+-webkit-box-sizing: border-box;
+}
+ul.list li:first-child{
+    border: 0px;
+    padding: 0px;
+    margin: 5px 0px 10px 0px;
+}
+
+/*
+ul.grid li:hover section.right span.darkview { opacity: 1; }
+
+ul.grid li section.right span.darkview a.firstbtn { display: block; margin-bottom: 10px; } */
+.thu-tex {
+    width: 290px;
+    font-size:13px;
+}
+.thu-tex h3 {
+    font-size:17px;
+}
+.gird-ico{
+    float: left; height: 23px; margin: 13px;
+}
+.play-ic{
+    background: rgba(0, 0, 0, 0);
+    width:100%;
+    height: 100%;
+    position: absolute;
+    vertical-align: central;
+    z-index: 100;
+}
+.play-ic:hover {
+    background: url("../images/icon/play-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/** clearfix **/
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: inline-block; }
+.thbox{ height: auto; background: #000; padding: 0px; margin-right: 50px}
+ 
+html[xmlns] .clearfix { display: block; }
+* html .clearfix { height: 1%; }
+
+/*.........Media queries..........*/
+@media (min-width: 320px) {
+ ul.grid li {
+    width: 311px;}
+ ul.list li section.left {
+    width: 257px;
+}
+}
+@media (min-width: 360px) {
+ ul.grid li {
+    width: 239px;}
+  ul.list li section.left {
+    width: 294px;
+}
+}
+@media (min-width: 768px) {
+ ul.grid li {
+    width: 232px;
+}
+ul.list li section.right {
+    width:64%;
+}
+ul.list li section.left {
+    width: 226px;
+}
+}
+@media (min-width: 800px) {
+ul.list li section.left {
+    width: 237px;
+}
+}
+@media (min-width: 980px) {
+ ul.grid li {
+    width: 239px;
+}
+ul.list li section.right {
+    width: 64%;
+}
+
+}
+
+@media (min-width: 1280px) {
+ ul.grid li {
+    width: 259px;
+} 
+ul.list li section.left {
+    width: 239px;
+}
+ul.list li section.right {
+    width: 75%;
+}
+}
+@media (min-width: 1920px) {
+ul.grid li {
+    width: 271px;
+} 
+ul.list li section.right {
+    width: 82%;
+}
+ul.list li section.left {
+    width: 251px;
+}
+}

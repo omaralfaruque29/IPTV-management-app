@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LiveStreamer</title>
+
+</head>
+<body>
+
+	<div tiles:fragment="vodPlayContent" class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+		<div class="user-bg">
+			<div class="col-md-12">
+				<div class="col-md-12">
+					<h3 th:text="${vod.videoName}"></h3>
+				</div>
+				<div class="col-md-3"></div>
+				<div class="col-md-3"></div>
+			</div>
+
+			<div class="container col-sm-12 col-xs-12 col-md-12 col-lg-12">
+				<div id="myElement">Loading the player...</div>
+				<input type="hidden" id="vodUrl"
+					th:value="${vod.link}" /> <input
+					type="hidden" id="vodLogo"
+					th:value="@{~/images/}+${vod.poster}" /> <input
+					type="hidden" th:value="${vod.videoName}" id="title" />
+
+				<script type="text/javascript">
+												$(document)
+														.ready(
+																function() {
+																	
+																	var url =$(
+																			"#vodUrl")
+																			.val();
+																	
+																	console.log(url);
+																	
+																	var title = $("#title").val();
+																	loadPlayer(
+																			url,title);
+																});
+
+												function loadPlayer(url, title) {
+													
+													var firstInstance = jwplayer('myElement');
+													
+													firstInstance.setup(
+																	{
+																		file : url,
+																		title : title,
+																		width : '100%',
+																		androidhls : 'true',
+																		autostart : 'true',
+																		aspectratio : "16:9",
+																		
+																	});
+													firstInstance.on('error',function(event){
+								    			     	   console.log("LOG : "+event.message)
+								                                   var err = event.message;
+								                                   if(err.indexOf("404") != -1){
+								                                	   console.log("Inside condition..")
+								                                	   loadPlayer(url,title);
+								                                    }
+								  				    });
+	
+												}
+											</script>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

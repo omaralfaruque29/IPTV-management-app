@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/assets/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/assets/css/mystyle.css}" />
+<style type="text/css">
+.table img {
+	padding: 0px;
+}
+.channelName {
+    color: #000d1a;
+}
+</style>
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+	
+</script>
+
+
+</head>
+<body th:background="@{/resources/assets/img/Page_background.jpg}">
+
+	<div tiles:fragment="channelMonitorContent">
+	  <h1>down Channels</h1>
+	<div id="pattern" class="pattern">
+		<ul class="g">
+			<li th:each="item : ${downChannels}"><a class="channelName" href="#" th:utext="${item.channelName}"></a>
+			<img th:src="${'http://38.108.92.182:8080/imageupdate/resources/assets/img/channel_images/'+item.logo}" width="150px" height="100px" alt="channel logo" />
+					</li>
+		</ul>
+	</div>
+
+
+	<h1>Up Channels</h1>
+	<div id="pattern" class="pattern">
+		<ul class="g">
+			<li th:each="item : ${upChannels}"><a class="channelName" href="#" th:utext="${item.channelName}"></a>
+			<img th:src="${'http://38.108.92.182:8080/imageupdate/resources/assets/img/channel_images/'+item.logo}" width="150px" height="100px" alt="channel logo" />
+			</li>
+		</ul>
+	</div>
+	</div>
+
+</body>
+</html>
+
+

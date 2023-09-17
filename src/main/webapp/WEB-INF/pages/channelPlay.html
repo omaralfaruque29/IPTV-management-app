@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LiveStreamer</title>
+
+</head>
+<body>
+
+	<div tiles:fragment="channelPlayContent" class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+		<div class="user-bg">
+			<div class="col-md-12">
+				<div class="col-md-12">
+					<h3 th:text="${channel.channelName}"></h3>
+				</div>
+				<div class="col-md-3"></div>
+				<div class="col-md-3"></div>
+			</div>
+
+			<div class="container col-sm-12 col-xs-12 col-md-12 col-lg-12">
+				<div id="myElement">Loading the player...</div>
+				<input type="hidden" id="channelUrl"
+					th:value="@{~/images/}+${channel.channelId}+'_'+${channel.channelName}+'.m3u8'" /> <input
+					type="hidden" id="channelLogo"
+					th:value="@{~/images/}+${channel.logo}" /> <input
+					type="hidden" th:value="${channel.channelName}" id="title" /> <input
+					type="hidden"
+					th:value="${'http://38.108.92.182:8080/imageupdate/resources/assets/img/channel_images/'+channel.logo}"
+					id="poster" />
+
+				<script type="text/javascript">
+												$(document)
+														.ready(
+																function() {
+																	
+																	var fullUrl = window.location.href;
+																	var res = fullUrl.split("/");
+																	var baseUrl = res[0]+"/"+res[1]+"/"+res[2];
+																	
+																	console.log(baseUrl);
+																	
+																	var url = baseUrl + $(
+																			"#channelUrl")
+																			.val();
+																	
+																	console.log(url);
+																	
+																	var title = $("#title").val();
+																	var poster = $("#poster").val();
+																	loadPlayer(
+																			url,title,poster);
+																});
+
+												function loadPlayer(url, title,poster) {
+													
+													var firstInstance = jwplayer('myElement');
+													
+													firstInstance.setup(
+																	{
+																		file : url,
+																		image : poster,
+																		title : title,
+																		width : '100%',
+																		androidhls : 'true',
+																		autostart : 'true',
+																		aspectratio : "16:9",
+																		
+																	});
+													firstInstance.on('error',function(event){
+								    			     	   console.log("LOG : "+event.message)
+								                                   var err = event.message;
+								                                   if(err.indexOf("404") != -1){
+								                                	   console.log("Inside condition..")
+								                                	   loadPlayer(url,title,poster);
+								                                    }
+								  				    });
+	
+												}
+											</script>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

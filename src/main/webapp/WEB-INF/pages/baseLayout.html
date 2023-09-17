@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Livestreamer</title>
+<link rel="shortcut icon" type="image/x-icon"
+	th:href="@{/resources/assets/images/icon/favicon.ico}" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<link rel="stylesheet"
+	th:href="@{/resources/assets/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/resources/assets/css/dashboard.css}" />
+<link rel="stylesheet" th:href="@{/resources/assets/css/style.css}" />
+<link rel="stylesheet" th:href="@{/resources/assets/css/menu.css}" />
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/assets/css/mystyle.css}" />
+<style type="text/css">
+.table img {
+	padding: 0px;
+}
+.channelName {
+    color: #000d1a;
+}
+</style>
+
+<!-- vertical menu -->
+<link rel="stylesheet"
+	th:href="@{/resources/assets/css/font-awesome.css}" />
+
+<script th:src="@{/resources/assets/js/jquery.min.js}"></script>
+<script th:src="@{/resources/assets/js/pageScript.js}"
+	type="text/javascript"></script>
+	
+	
+<script th:src="@{/resources/assets/js/bootstrap-filestyle.js}"
+	type="text/javascript"></script>
+	
+<!-- resources for tag search -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/assets/css/jquery.tagit.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/assets/css/tagit.ui-zendesk.css}" />
+<script th:src="@{/resources/assets/js/jquery-ui.min.js}"
+	type="text/javascript" charset="utf-8"></script>
+<!-- The real deal -->
+<script th:src="@{/resources/assets/js/tag-it.js}"
+	type="text/javascript"></script>
+<script th:src="@{/resources/assets/js/tag.js}" type="text/javascript"></script>	
+
+<!--JWPlayer6.10-->
+<script type="text/javascript" th:src="@{/resources/assets/js/jwplayer.js}"></script>
+<script type="text/javascript">jwplayer.key="jNftvbhSKRlidp83RSa1nhrArU0m0B8I9dCjNrt6w20=";</script>
+
+
+</head>
+<body>
+	<!-- mobile view start -->
+	<div class="container-fluid">
+		<div
+			class="hidden-sm col-sm-12 col-xs-12 hidden-md col-md-12 hidden-lg col-lg-12 header-bg">
+			<div id="mobile-header">
+				<div id="col-xs-12">
+					<div class="col-xs-3 tab-menu">
+						<a id="simple-menu" href="#sidr" class="sidrmenu"><img
+							th:src="@{/resources/assets/images/icon/menu.png}" /></a>
+					</div>
+					<div class="col-xs-6 text-center">
+						<div id="head-box">
+							<div id="header-icon">
+								<div class="dropdown">
+									<div class="logo-bg">
+										<img th:src="@{/resources/assets/images/icon/logo.png}"
+											width="100%" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-3 text-right tab-menu">
+						<a id="righttrigger" href="#rightmenu" class="sidrmenu"><img
+							th:src="@{/resources/assets/images/icon/select.png}" /></a>
+					</div>
+					<div id="sidr" style="background: #dddee0;">
+						<ul>
+
+						</ul>
+					</div>
+					<div id="rightmenu" style="background: #dddee0;">
+						<ul>
+							<div class="right-main">
+								<ul>000000
+								</ul>
+							</div>
+						</ul>
+					</div>
+					<header id="mainheader" class="mobile-hide">
+						<!-- Menu -->
+					</header>
+				</div>
+			</div>
+		</div>
+		<div
+			class="hidden-sm col-sm-12 col-xs-12 hidden-md col-md-12 hidden-lg col-lg-12 mob-header">
+			<div class="search-box">
+				<div class="form-group">
+					<input type="text" name="q" value="" id="newtab-search-text"
+						placeholder="Search" /> <input type="submit"
+						id="newtab-search-submit" value="" />
+				</div>
+				<!-- /input-group -->
+			</div>
+		</div>
+	</div>
+	<!-- mobile view end -->
+	<!-- ... main header start -->
+	<div class="container-fluid header-bg">
+		<div class="col-sm-12 hidden-xs col-xs-12 col-md-12 col-lg-12">
+			<div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
+				<div class="logo-bg">
+					<img th:src="@{/resources/assets/images/icon/logo.png}"
+						width="100%" />
+				</div>
+			</div>
+			<div class="col-sm-8 col-xs-2 col-md-2 col-lg-8">
+				<div tiles:replace="upperForm" class="search-box">
+					
+					SearchForm
+				</div>
+			</div>
+			<div  class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
+				<div tiles:replace="rightUpperMenu" class="header-pro">
+				     rightUpperMenu
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ... main header end -->
+	<div tiles:replace="leftMenu" id="responsive-admin-menu">
+		Left Menu
+	</div>
+	<!--Menu-->
+	<div id="content-wrapper">
+		<div class="row">
+			<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+				<div class="container-fluid">
+
+
+					<div class="col-sm-12 col-xs-12 col-md-10 col-lg-10"
+						style="background-color: #dadada">
+
+
+						<div class="pl-side">
+							<div class="container-fluid" style="background: white">
+								<div tiles:replace="content" class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+									Content
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div tiles:replace="rightMenu" class="hidden-sm col-sm-2 hidden-xs col-xs-2 col-md-2 col-lg-2">
+						Right menu
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- List & Grid View End-->
+	<!-- footer start  -->
+	<div tiles:replace="footer" class="container-fluid footer-bg">
+		Footer
+	</div>
+	<!-- footer end  -->
+
+
+	<!-- Bootstrap Core JavaScript -->
+	<script th:src="@{/resources/assets/js/bootstrap.min.js}"></script>
+	<script th:src="@{/resources/assets/js/menu.js}"></script>
+	<script th:src="@{/resources/assets/js/script.js}"></script>
+	<script th:src="@{/resources/assets/js/home-list.js}"></script>
+
+	<!-- vertical menu  -->
+	<script type="text/javascript">
+		eval(function(p, a, c, k, e, r) {
+			e = function(c) {
+				return c.toString(a)
+			};
+			if (!''.replace(/^/, String)) {
+				while (c--)
+					r[e(c)] = k[c] || e(c);
+				k = [ function(e) {
+					return r[e]
+				} ];
+				e = function() {
+					return '\\w+'
+				};
+				c = 1
+			}
+			;
+			while (c--)
+				if (k[c])
+					p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+			return p
+		}
+				(
+						'$(o).i(4(){$("p").q(\'<r t="u" m="9/3-6-0.9"/>\');s a="";$("#3-0").c(4(){$("#3-6-0 #0").g()});$(h).f(4(){$("#3-6-0 #0").j("k")});$("#0 a.l").c(4(){d(a!=""){$("#"+a).n("a").e("7");$("#"+a).b("8")};d(a==$(1).5("2")){$("#"+$(1).5("2")).b("8");$(1).e("7");a=""}v{$("#"+$(1).5("2")).w("8");a=$(1).5("2");$(1).x("7")};y z})});',
+						36,
+						36,
+						'menu|this|name|responsive|function|attr|admin|downarrow|fast|css||slideUp|click|if|removeClass|resize|slideToggle|window|ready|removeAttr|style|submenu|href|prev|document|head|append|link|var|rel|stylesheet|else|slideDown|addClass|return|false'
+								.split('|'), 0, {}))
+	</script>
+
+
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#simple-menu').sidr({
+				name : 'sidr',
+				side : 'left'
+			});
+			$('#righttrigger').sidr({
+				name : 'rightmenu',
+				side : 'right'
+			});
+		});
+	</script>
+
+</body>
+
+</html>

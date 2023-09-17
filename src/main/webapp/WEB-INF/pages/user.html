@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LiveStreamer</title>
+
+</head>
+<body>
+
+	<div tiles:fragment="userContent" class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+
+		<div th:if="${indicator == 'success'}" class="alert alert-success">
+			<strong>Success!</strong> Action Successful..
+		</div>
+		<div th:if="${indicator == 'error'}" class="alert alert-danger">
+			<strong>Error!</strong> Action Not Successful..
+		</div>
+		<div class="user-bg">
+
+			<form role="form" th:object="${user}"
+				th:action="@{'/page/user/save'+'?oldId='+${id}}" method="post"
+				th:method="${'post'}" class="form-horizontal row-border">
+				<input type="hidden" th:field="*{userId}" />
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="userName">User
+						Name:</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control sign-style"
+							th:field="*{userName}" placeholder="User Name"
+							required="required" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="country">Country:</label>
+					<div class="col-sm-6">
+						<select class="form-control sign-style" th:field="*{countryName}"
+							th:if="${id == 'new'}" required="required">
+							<option th:each="data : ${countryMap}" th:value="${data.value}"
+								th:text="${data.value}"></option>
+						</select> <select class="form-control sign-style" th:field="*{countryName}"
+							th:if="${id != 'new'}" required="required">
+							<option th:value="*{countryName}" th:text="*{countryName}"></option>
+							<option th:each="data : ${countryMap}" th:value="${data.value}"
+								th:text="${data.value}"></option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="email">Email:</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control sign-style"
+							th:field="*{email}" placeholder="Email" required="required" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="password">Password:</label>
+					<div class="col-sm-6">
+						<input type="password" class="form-control sign-style"
+							name="password" th:value="${user.password}"
+							placeholder="Password" required="required" />
+					</div>
+				</div>
+
+				<br />
+
+				<div class="row sign-style">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="btn-toolbar">
+							<input class="leftButton myButton" type='submit' name='save'
+								value='Submit' />
+						</div>
+					</div>
+				</div>
+
+			</form>
+			<br /> <br />
+			<div class="row">
+				<section id="links-section"
+					th:if="${user ne null and user.userId ne 0}">
+					<button type="button" id="addRoleBtn" class="btn btn-primary">Add
+						Role</button>
+					<br /> <br />
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Roles</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="role : ${rolesList}">
+								<td th:text="${role.userRoleName}"></td>
+								<td><a type="button" class="btn btn-danger "
+									th:href="@{'/page/userRole/'+${user.userId}+'/delete?userRoleId='+${role.userRoleId}}"
+									th:id="'delete_'+${role.userRoleId}"> <span
+										class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+										Delete
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<br />
+					<form class="form-inline hide" role="form" id="roleForm"
+						th:action="@{'/page/userRole/'+${user.userId}+'/save'}"
+						method="post">
+						<div class="form-group">
+							<label class="sr-only" for="role">Role</label> <select
+								class="form-control" name="userRoleName" required="required">
+								<option th:each="data : ${roleMap}" th:value="${data.value}"
+									th:text="${data.value}"></option>
+							</select>
+						</div>
+						<button type="submit" class="btn btn-primary">Add</button>
+					</form>
+
+				</section>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

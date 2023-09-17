@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/stream_db</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">mizan</property>
+    <property name="hibernate.connection.charSet">UTF-8</property>
+    <property name="hibernate.connection.characterEncoding">UTF-8</property>
+    <property name="hibernate.connection.useUnicode">true</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+<!--     <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property> -->
+<!--     <property name="format_sql">true</property> -->
+ 	<mapping class="com.ipvision.domain.Country" /> 
+	<mapping class="com.ipvision.domain.Language" /> 
+	<mapping class="com.ipvision.domain.Category" /> 
+	<mapping class="com.ipvision.domain.Tag" /> 
+ 	<mapping class="com.ipvision.domain.LiveChannel" /> 
+	<mapping class="com.ipvision.domain.VOD" /> 
+	<mapping class="com.ipvision.domain.User" /> 
+	<mapping class="com.ipvision.domain.ChannelLink" />
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+</head>
+<body>
+
+	<div tiles:fragment="rightUpper"  class="header-pro">
+		<div class="nav-collapse">
+			<ul class="nav pull-right ">
+				<div class="dropdown">
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown"><strong
+						th:text="${username}"><img
+							th:src="@{/resources/assets/images/icon/profile-header.png}" />
+							&nbsp;&nbsp;</strong> <strong class="caret sign-t"></strong></a>
+					<div class="dropdown-menu sign-i">
+						<div class="e-box"></div>
+						<div class="e-box">
+							<li class="message-preview"><a href="#"> <span
+									class="pull-left"> <img class="media-object" alt="" />
+								</span>
+									<div class="media-body">
+										<h5 class="media-heading">
+											<strong style="color: black" th:text="${username}"></strong>
+										</h5>
+										<p class="small text-muted">
+											<i class="fa fa-clock-o"></i>
+										</p>
+										<div class="myButton">
+											<img th:src="@{/resources/assets/images/icon/settings.png}" />
+										</div>
+										<div class="myButton" style="margin-right: 7px">Creator
+											Studio</div>
+									</div>
+
+							</a></li>
+						</div>
+						<div class="e-box">
+							<a th:href="@{/page/logout}" class="myButton">Sign Out</a>
+							<div class="myButton" style="margin-right: 50px">Add
+								Account</div>
+						</div>
+					</div>
+				</div>
+			</ul>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

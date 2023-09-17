@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Livestreamer</title>
+
+</head>
+<body>
+
+	<div tiles:fragment="searchForm" class="search-box">
+		<form th:action="@{/page/channelSearch/result}" method="post">
+			<div class="form-group" style="margin: 0px;">
+				<input type="text" name="tagName" value="" id="newtab-search-text"
+					placeholder="Search" /> <input type="submit"
+					id="newtab-search-submit" value="" />
+				<input type="hidden" name="contentType" value="channel" />	
+			</div>
+		</form>
+	</div>
+
+
+</body>
+
+</html>

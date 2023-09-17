@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Livestreamer</title>
+<link rel="shortcut icon" type="image/x-icon"
+	th:href="@{/resources/assets/images/icon/favicon.ico}" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<link rel="stylesheet"
+	th:href="@{/resources/assets/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/resources/assets/css/dashboard.css}" />
+<link rel="stylesheet" th:href="@{/resources/assets/css/style.css}" />
+<link rel="stylesheet" th:href="@{/resources/assets/css/menu.css}" />
+<!-- vertical menu -->
+<link rel="stylesheet"
+	th:href="@{/resources/assets/css/font-awesome.css}" />
+<!--JWPlayer6.10-->
+<!--<script type="text/javascript" src="js/jwplayer.js"></script>
+    <script type="text/javascript">jwplayer.key = "t3ZrGWGiSyOSH65RfspUrlcFsLyxRIVdZ8AAMQ==";</script>-->
+<script src="http://jwpsrv.com/library/F65hjNT7EeOf3CIACi0I_Q.js"></script>
+<script th:src="@{/resources/assets/js/jquery.min.js}"></script>
+<script th:src="@{/resources/assets/js/pageScript.js}"
+	type="text/javascript"></script>
+
+
+</head>
+<body>
+	<div tiles:fragment="allCategoryContent" class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+		<div th:if="${indicator == 'success'}" class="alert alert-success">
+			<strong>Success!</strong> Action Successful..
+		</div>
+		<div th:if="${indicator == 'error'}" class="alert alert-danger">
+			<strong>Error!</strong> Action Not Successful..
+		</div>
+		<div class="">
+			<h3>&nbsp;&nbsp;All Category</h3>
+		</div>
+		<div class="user-bg">
+			<form class="form-inline" action="#" method='post'>
+				<div class="form-group">
+					<a type="button" class="btn btn-success" data-toggle="modal"
+						th:href="@{/page/category/new}"> <span
+						class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+					</a>
+				</div>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="form-group">
+					<input type="hidden" id="lastCategoryStatus"
+						th:value="${lastCategoryStatus}" /> <input type="hidden"
+						id="context" th:value="${context}" /> <label for="countryName">Category
+						per page</label> <select id="perPageCategory" class="form-control"
+						required="required">
+						<option th:text="${selectedCategoryPerPage}"
+							th:value="${selectedCategoryPerPage}"></option>
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+						<option value="50">50</option>
+					</select>
+
+				</div>
+
+			</form>
+		</div>
+		<div class="user-bg">
+			<div class="table-responsive">
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Category Name</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="category : ${categories}">
+							<td th:text="${category.categoryId}"></td>
+							<td th:text="${category.categoryName}"></td>
+							<td><a type="button" class="btn btn-primary "
+								data-toggle="modal"
+								th:href="@{'/page/category/'+${category.categoryId}}"
+								th:id="'edit_'+${category.categoryId}"> <span
+									class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+									Edit
+							</a></td>
+							<td>
+								<form role="form" th:object="${category}"
+									th:action="@{/page/category/delete}" th:method="${'post'}"
+									enctype="multipart/form-data">
+									<input type="hidden" name="categoryId"
+										th:value="${category.categoryId}" /> <input
+										class="btn btn-danger" type='submit' value='Delete' />
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="container">
+					<div>
+						<ul class="pagination">
+							<li th:each="i : ${#numbers.sequence( 1, totalPage/1)}"><a
+								th:href="@{'/page/category/alll/'+${i}}" th:text="${i}"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Livestreamer</title>
+
+</head>
+<body>
+
+	<!-- ... main header end -->
+	<div tiles:fragment="left" id="responsive-admin-menu">
+		<!--Menu-->
+		<div id="menu">
+			<a th:href="@{/page/home}"><i class="icon-home"></i><span>Home</span></a> <a
+				href="#" title="My Account" class="submenu" name="media-sub"><i
+				class="icon-my-account"></i><span> My Account</span></a>
+			<!-- Media Sub Menu -->
+			<div id="media-sub">
+				<a href="#" title="Edit Profile"><i class="icon-edit-profile"></i><span>
+						Edit Profile</span></a> <a href="#" title="Account"><i
+					class="icon-account"></i><span> Account</span></a> <a href="#"
+					title="Change Password"><i class="icon-change-password"></i><span>Change
+						Password</span></a>
+			</div>
+			<a th:if="${Admin == 'Admin'}" href="#" title="Admin" class="submenu"
+				name="media-sub1"><i class="icon-my-account"></i><span>
+					Admin</span></a>
+			<!-- Media Sub Menu -->
+			<div id="media-sub1">
+				<a th:href="@{/page/channel/all/10/0}+'?i='" title="All Channels"><i
+					class="icon-edit-profile"></i><span> All Channels</span></a> <a
+					th:href="@{/page/vod/all/10/0}+'?i='" title="VOD"><i
+					class="icon-edit-profile"></i><span> VOD</span></a> <a
+					th:href="@{/page/user/all/10/0}+'?i='" title="User"><i
+					class="icon-edit-profile"></i><span>User</span></a> <a
+					th:href="@{/page/role/all/1}+'?i='" title="Role"><i
+					class="icon-edit-profile"></i><span>Role</span></a> <a
+					th:href="@{/page/country/all/10/0}+'?i='" title="Country"><i
+					class="icon-edit-profile"></i><span>Country</span></a> <a
+					th:href="@{/page/category/all/10/0}+'?i='" title="Category"><i
+					class="icon-edit-profile"></i><span>Category</span></a> <a
+					th:href="@{/page/language/all/10/0}+'?i='" title="Language"><i
+					class="icon-edit-profile"></i><span>Language</span></a> <a
+					th:href="@{/page/tag/all/10/0}+'?i='" title="Tag"><i
+					class="icon-edit-profile"></i><span>Tag</span></a> <a
+					th:href="@{/page/server/all/1}+'?i='" title="Server"><i
+					class="icon-edit-profile"></i><span>Server</span></a>
+			</div>
+			<!-- Media Sub Menu -->
+			<a th:if="${Publisher == 'Publisher' or Admin == 'Admin'}" th:href="@{/page/ownchannel/all/10/0}+'?i='" title="My Channel"><i
+				class="icon-my-channel"></i><span> My Channel</span>
+				</a>
+				 <a th:if="${Publisher == 'Publisher' or Admin == 'Admin'}" href="#"
+				title="My Video"><i class="icon-my-video"></i><span> My
+					Video</span></a>
+			<!-- <a
+				href="" class="submenu" name="other-sub" title="Other Contents"><i
+				class="icon-plalist"></i><span> Playlist </span></a>
+			Other Contents Sub Menu
+			<div id="other-sub">
+				<a href="" title="Song"><i class="icon-play-all"></i><span>
+						Song </span></a> <a href="" title="Video"><i class="icon-play-all"></i><span>
+						Video</span></a> <a href="" title="Audio"><i class="icon-play-all"></i><span>
+						Audio</span></a> <a href="" title="Movie"><i class="icon-play-all"></i><span>
+						Movie</span></a>
+			</div> -->
+		</div>
+	</div>
+	
+</body>
+
+</html>

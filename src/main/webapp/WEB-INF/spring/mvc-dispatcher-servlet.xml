@@ -1,0 +1,160 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/jee 
+        http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/task
+ 	  	http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<!-- Scans the classpath of this application for @Components to deploy as 
+		beans -->
+	<context:component-scan base-package="com.ipvision.controller" />
+	<context:component-scan base-package="com.ipvision.service" />
+	<context:component-scan base-package="com.ipvision.dao" />
+	<mvc:annotation-driven />
+
+	<mvc:view-controller path="/no_access" view-name="no_access" />
+
+	<mvc:interceptors>
+		<!-- Changes the locale when a 'locale' request parameter is sent; e.g. 
+			/?locale=de -->
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+	</mvc:interceptors>
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources/ directory -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
+	<!-- To handle mulipart form data -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<property name="maxUploadSize" value="107374182400" />
+	</bean>
+
+	<!-- Handles HTTP GET requests for /images/** by efficiently serving up 
+		images path outside the context root directory -->
+	<!-- <mvc:resources mapping="/images/**" location="file:#{appConfig.imagePath}"/> -->
+
+	<!-- Saves a locale change using a cookie -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+
+	<!-- Application Message Bundle -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/messages/messages" />
+		<property name="cacheSeconds" value="0" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+
+	<!-- **************************************************************** -->
+	<!-- THYMELEAF-SPECIFIC ARTIFACTS -->
+	<!-- TemplateResolver <- TemplateEngine <- ViewResolver -->
+	<!-- **************************************************************** -->
+	<bean id="templateResolver"
+		class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".html" />
+		<property name="characterEncoding" value="UTF-8" />
+		<property name="templateMode" value="HTML5" />
+		<!-- Template cache is true by default. Set to false if you want -->
+		<!-- templates to be automatically updated when modified. -->
+		<property name="cacheable" value="false" />
+	</bean>
+	
+	<bean id="tilesConfigurer" class="org.thymeleaf.extras.tiles2.spring3.web.configurer.ThymeleafTilesConfigurer">
+      <property name="definitions">
+        <list>
+          <value>/WEB-INF/tiles-defs.xml</value>
+        </list>
+      </property>
+    </bean>
+    
+	<bean id="templateEngine" class="org.thymeleaf.spring3.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver" />
+		<property name="additionalDialects">
+            <set>
+              <bean class="org.thymeleaf.extras.tiles2.dialect.TilesDialect"/>
+            </set>
+        </property>
+
+	</bean>
+	<bean class="org.thymeleaf.spring3.view.ThymeleafViewResolver">
+		<property name="order" value="2" />
+		<property name="viewClass" value="org.thymeleaf.extras.tiles2.spring3.web.view.ThymeleafTilesView"/>
+		<property name="templateEngine" ref="templateEngine" />
+		<property name="characterEncoding" value="UTF-8" />
+		<property name="viewNames"
+			value="index,allCountry,country,allLanguage,language,
+		    allCategory,category,allTag,tag,allChannel,channel,allVod,vod,user,allUsers,welcome,
+		    monitorEyeIndex,role,allRole,channelLogs,channelPlay,vodPlay,channelMonitor,server,allServer,
+		    channelSearch,allSearchedChannel,success,error" />
+	</bean>
+
+	<!-- Standard JSP view everything else -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="order" value="4" />
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<!-- <property name="url" value="jdbc:mysql://localhost:3306/iptv_db"/> -->
+		<property name="url" value="jdbc:mysql://localhost:3306/iptv_db" />
+		<property name="username" value="root" />
+		<!-- <property name="password" value="ipvision123" /> -->
+		<property name="password" value="1234"/>
+	</bean>
+
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.connection.pool_size">5</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<!-- <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop> -->
+			</props>
+		</property>
+		<property name="annotatedClasses">
+			<array value-type="java.lang.Class">
+				<value>com.ipvision.domain.Country</value>
+				<value>com.ipvision.domain.Language</value>
+				<value>com.ipvision.domain.Category</value>
+				<value>com.ipvision.domain.Tag</value>
+				<value>com.ipvision.domain.LiveChannel</value>
+				<value>com.ipvision.domain.VOD</value>
+				<value>com.ipvision.domain.User</value>
+				<value>com.ipvision.domain.ChannelLink</value>
+				<value>com.ipvision.domain.Role</value>
+				<value>com.ipvision.domain.UserRole</value>
+				<value>com.ipvision.domain.ChannelLog</value>
+				<value>com.ipvision.domain.Server</value>
+				<value>com.ipvision.domain.PrimaryTag</value>
+			</array>
+		</property>
+	</bean>
+
+
+</beans>

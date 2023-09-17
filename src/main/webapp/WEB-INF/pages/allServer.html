@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Livestreamer</title>
+
+</head>
+<body>
+
+	<div tiles:fragment="allServerContent" class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+		<div th:if="${indicator == 'success'}" class="alert alert-success">
+			<strong>Success!</strong> Action Successful..
+		</div>
+		<div th:if="${indicator == 'error'}" class="alert alert-danger">
+			<strong>Error!</strong> Action Not Successful..
+		</div>
+		<div class="">
+			<h3>&nbsp;&nbsp;All Servers</h3>
+		</div>
+		<div class="user-bg">
+			<form class="form-inline" action="#" method='post'>
+				<div class="input-group" style="width: 100%;">
+					<div class="form-group" style="width: 100%;">
+						<div class="col-sm-4 col-xs-12 col-md-4 col-lg-4">
+
+							<a type="button" class="btn btn-success" data-toggle="modal"
+								th:href="@{/page/server/new}"> <span
+								class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+							</a>
+
+						</div>
+						<div class="pub-search"></div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="user-bg">
+			<div class="table-responsive">
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Server Name</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="server : ${servers}">
+							<td th:text="${server.serverId}"></td>
+							<td th:text="${server.serverName}"></td>
+							<td><a type="button" class="btn btn-primary "
+								data-toggle="modal"
+								th:href="@{'/page/server/'+${server.serverId}}"
+								th:id="'edit_'+${server.serverId}"> <span
+									class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+									Edit
+							</a></td>
+							<td>
+								<form role="form" th:object="${server}"
+									th:action="@{/page/server/delete}" th:method="${'post'}"
+									enctype="multipart/form-data">
+									<input type="hidden" name="serverId"
+										th:value="${server.serverId}" /> <input
+										class="btn btn-danger" type='submit' value='Delete' />
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="container">
+					<div>
+						<ul class="pagination">
+							<li th:each="i : ${#numbers.sequence( 1, totalServer/1)}"><a
+								th:href="@{'/page/server/all/'+${i}}" th:text="${i}"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

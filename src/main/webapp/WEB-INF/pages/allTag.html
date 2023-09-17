@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Livestreamer</title>
+
+
+</head>
+<body>
+
+	<div tiles:fragment="allTagContent" class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+		<div th:if="${indicator == 'success'}" class="alert alert-success">
+			<strong>Success!</strong> Action Successful..
+		</div>
+		<div th:if="${indicator == 'error'}" class="alert alert-danger">
+			<strong>Error!</strong> Action Not Successful..
+		</div>
+		<div class="">
+			<h3>&nbsp;&nbsp;All Tags</h3>
+		</div>
+		<div class="user-bg">
+			<form class="form-inline" action="#" method='post'>
+				<div class="form-group">
+					<a type="button" class="btn btn-success" data-toggle="modal"
+						th:href="@{/page/tag/new}"> <span
+						class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+					</a>
+				</div>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="form-group">
+					<input type="hidden" id="lastTagStatus" th:value="${lastTagStatus}" />
+					<input type="hidden" id="context" th:value="${context}" /> <label
+						for="countryName">Tag per page</label> <select id="perPageTag"
+						class="form-control" required="required">
+						<option th:text="${selectedTagPerPage}"
+							th:value="${selectedTagPerPage}"></option>
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+						<option value="50">50</option>
+					</select>
+
+				</div>
+
+			</form>
+		</div>
+		<div class="user-bg">
+			<div class="table-responsive">
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Tag Name</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="tag : ${tags}">
+							<td th:text="${tag.tagId}"></td>
+							<td th:text="${tag.tagName}"></td>
+							<td><a type="button" class="btn btn-primary "
+								data-toggle="modal" th:href="@{'/page/tag/'+${tag.tagId}}"
+								th:id="'edit_'+${tag.tagId}"> <span
+									class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+									Edit
+							</a></td>
+							<td>
+								<form role="form" th:object="${tag}"
+									th:action="@{/page/tag/delete}" th:method="${'post'}"
+									enctype="multipart/form-data">
+									<input type="hidden" name="tagId" th:value="${tag.tagId}" /> <input
+										class="btn btn-danger" type='submit' value='Delete' />
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="container">
+					<div>
+						<ul class="pagination">
+							<li th:each="i : ${#numbers.sequence( 1, totalPage/1)}"><a
+								th:href="@{'/page/tag/alll/'+${i}}" th:text="${i}"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

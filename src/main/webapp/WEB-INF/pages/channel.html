@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LiveStreamer</title>
+
+</head>
+<body>
+
+<div tiles:fragment="channelContent">
+	<br />
+	<br />
+	<form role="form" th:object="${channel}"
+		th:action="@{'/page/channel/save'+'?oldId='+${id}}"
+		th:method="${'post'}" enctype="multipart/form-data"
+		class="form-horizontal row-border">
+		<input type="hidden" th:field="*{channelId}" />
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="channelName">Channel
+				Name:</label>
+			<div class="col-sm-6">
+				<input th:if="${id == 'new'}" type="text" class="form-control sign-style"
+					th:field="*{channelName}" placeholder="Channel Name"
+					required="required" />
+					<input th:if="${id != 'new'}" type="hidden" class="form-control sign-style"
+					th:field="*{channelName}" placeholder="Channel Name"
+					required="required" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="about">About:</label>
+			<div class="col-sm-6">
+				<textarea rows="3" class="form-control sign-style"
+					th:field="*{about}" required="required" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="category">Category:</label>
+			<div class="col-sm-6">
+				<select class="form-control sign-style" name="categoryId"
+					th:if="${id == 'new'}" required="required">
+					<option th:each="data : ${categoryMap}" th:value="${data.key}"
+						th:text="${data.value}"></option>
+				</select> <select class="form-control sign-style" name="categoryId"
+					th:if="${id != 'new'}" required="required">
+					<option th:value="${categoryId}" th:text="${categoryName}"></option>
+					<option th:each="data : ${categoryMap}" th:value="${data.key}"
+						th:text="${data.value}"></option>
+				</select>
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="country">Country:</label>
+			<div class="col-sm-6">
+				<select class="form-control sign-style" name="countryId"
+					th:if="${id == 'new'}" required="required">
+					<option th:each="data : ${countryMap}" th:value="${data.key}"
+						th:text="${data.value}"></option>
+				</select> <select class="form-control sign-style" name="countryId"
+					th:if="${id != 'new'}" required="required">
+					<option th:value="${countryId}" th:text="${countryName}"></option>
+					<option th:each="data : ${countryMap}" th:value="${data.key}"
+						th:text="${data.value}"></option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="language">Language:</label>
+			<div class="col-sm-6">
+				<select class="form-control sign-style" name="languageId"
+					th:if="${id == 'new'}" required="required">
+					<option th:each="data : ${languageMap}" th:value="${data.key}"
+						th:text="${data.value}"></option>
+				</select> <select class="form-control sign-style" name="languageId"
+					th:if="${id != 'new'}" required="required">
+					<option th:value="${languageId}" th:text="${languageName}"></option>
+					<option th:each="data : ${languageMap}" th:value="${data.key}"
+						th:text="${data.value}"></option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="link">Source Link:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control sign-style"
+					th:field="*{link}" placeholder="Source Link" required="required" />
+			</div>
+		</div>
+
+		<input type="hidden" class="form-control" th:field="*{logo}"
+			required="required" /> <input type="hidden" class="form-control"
+			th:field="*{pid}" required="required" />
+			
+			<input type="hidden" class="form-control"
+			th:field="*{publishName}"  />
+
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="logo">Logo</label>
+			<div class="col-sm-6">
+				<input type="file" th:field="*{file}"
+					class="form-control sign-style filestyle"
+					data-buttonName="btn-success" />
+			</div>
+		</div>
+
+		<div style="visibility: hidden">
+			<select id="tagList">
+				<option th:each="data : ${tagMap}" th:value="${data.value}"
+					th:text="${data.value}"></option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="tag">Tag:</label>
+			<div class="col-sm-6">
+				<input type="text" id="singleFieldTags2" th:field="*{tag}"
+					class="form-control sign-style" required="required" />
+			</div>
+		</div>
+		<div class="row sign-style">
+			<div class="col-sm-6 col-sm-offset-3">
+				<div class="btn-toolbar">
+					<input class="leftButton myButton" type='submit' name='save'
+						value='Submit' />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+</body>
+</html>

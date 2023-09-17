@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+    <!-- <definition name="index" template="/layout/baseLayout"/> -->
+    
+    <definition name="index" template="indexBaseLayout"/>
+    
+    <definition name="allCategory" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="allCategoryDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="allChannel" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="allChannelDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="allSearchedChannel" template="allSearchedChannel"/>
+    
+    <definition name="allCountry" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="allCountryDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="allLanguage" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="allLanguageDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="allRole" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="allRoleDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="allServer" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="allServerDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="allTag" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="allTagDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="allUsers" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="allUserDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="allVod" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDefVod" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="allVodDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="category" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="categoryDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="channel" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="channelDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="channelLogs" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="channelLogsDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="channelMonitor" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="channelMonitorDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="channelPlay" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="channelPlayDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="vodPlay" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDefVod" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="vodPlayDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="country" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="countryDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="language" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="languageDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="role" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="roleDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="server" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="serverDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="tag" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="tagDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="user" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDef" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="userDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+    <definition name="vod" template="baseLayout">
+        <put-attribute name="rightUpperMenu" value="rightUpperMenuDef" />
+        <put-attribute name="leftMenu" value="leftMenuDef" />
+        <put-attribute name="rightMenu" value="rightMenuDefVod" />
+        <put-attribute name="upperForm" value="headerSearchFormDef" />
+        <put-attribute name="content" value="vodDef" />
+        <put-attribute name="footer" value="footerDef" />
+    </definition>
+    
+
+
+    <definition name="rightUpperMenuDef" template="rightUpperMenu :: rightUpper" />
+    <definition name="leftMenuDef" template="leftMenu :: left" />
+    <definition name="rightMenuDef" template="rightMenu :: right" />
+    <definition name="rightMenuDefVod" template="rightMenuVod :: right" />
+    <definition name="headerSearchFormDef" template="headerSearchForm :: searchForm" />
+    <definition name="footerDef" template="footer :: footer" />
+    
+    
+    <definition name="allCategoryDef" template="allCategory :: allCategoryContent" />
+    <definition name="allChannelDef" template="allChannel :: allChannelContent" />
+    <definition name="allCountryDef" template="allCountry :: allCountryContent" />
+    <definition name="allLanguageDef" template="allLanguage :: allLanguageContent" />
+    <definition name="allRoleDef" template="allRole :: allRoleContent" />
+    <definition name="allServerDef" template="allServer :: allServerContent" />
+    <definition name="allTagDef" template="allTag :: allTagContent" />
+    <definition name="allUserDef" template="allUsers :: allUserContent" />
+    <definition name="allVodDef" template="allVod :: allVodContent" />
+    <definition name="categoryDef" template="category :: categoryContent" />
+    <definition name="channelDef" template="channel :: channelContent" />
+    <definition name="channelLogsDef" template="channelLogs :: channelLogsContent" />
+    <definition name="channelMonitorDef" template="channelMonitor :: channelMonitorContent" />
+    <definition name="channelPlayDef" template="channelPlay :: channelPlayContent" />
+    <definition name="countryDef" template="country :: countryContent" />
+    <definition name="languageDef" template="language :: languageContent" />
+    <definition name="roleDef" template="role :: roleContent" />
+    <definition name="serverDef" template="server :: serverContent" />
+    <definition name="tagDef" template="tag :: tagContent" />
+    <definition name="userDef" template="user :: userContent" />
+    <definition name="vodDef" template="vod :: vodContent" />
+    <definition name="vodPlayDef" template="vodPlay :: vodPlayContent" />
+   
+</tiles-definitions>

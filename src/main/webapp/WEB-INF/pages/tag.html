@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LiveStreamer</title>
+
+</head>
+<body>
+
+	<div tiles:fragment="tagContent">
+		<br /> <br />
+		<form role="form" th:object="${tag}"
+			th:action="@{'/page/tag/save'+'?oldId='+${id}}" method="post"
+			th:method="${'post'}" class="form-horizontal row-border">
+			<input type="hidden" th:field="*{tagId}" />
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="tagName">Tag
+					Name:</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control sign-style"
+						th:field="*{tagName}" placeholder="Tag Name" required="required" />
+				</div>
+			</div>
+			<br />
+			<div class="row sign-style">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="btn-toolbar">
+						<input class="leftButton myButton" type='submit' name='save'
+							value='Submit' />
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

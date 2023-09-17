@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LiveStreamer</title>
+
+</head>
+<body>
+
+	<div tiles:fragment="serverContent">
+		<br /> <br />
+		<form class="form-horizontal row-border" role="form"
+			th:object="${server}"
+			th:action="@{'/page/server/save'+'?oldId='+${id}}"
+			th:method="${'post'}">
+			<input type="hidden" th:field="*{serverId}" />
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="serverName">Server
+					Name:</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control sign-style"
+						th:field="*{serverName}" placeholder="Server Name"
+						required="required" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="privateIP">Private
+					IP:</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control sign-style"
+						th:field="*{privateIp}" placeholder="Private IP"
+						required="required" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="serverType">Server
+					Type:</label>
+				<div class="col-sm-6">
+
+					<select class="form-control sign-style" id="serverType"
+						name="serverType" th:if="${id == 'new'}" required="required">
+						<option value="Transcoder">Transcoder</option>
+						<option value="Streamer">Streaming Server</option>
+					</select> <select class="form-control sign-style" id="serverType"
+						name="serverType" th:if="${id != 'new'}" required="required">
+						<option th:value="${serverType}" th:text="${serverType}"></option>
+						<option value="Transcoder">Transcoder</option>
+						<option value="Streamer">Streaming Server</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group changeable">
+				<label class="col-sm-3 control-label" for="publicIP">Public
+					IP:</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control sign-style"
+						th:field="*{publicIp}" placeholder="Public IP" />
+				</div>
+			</div>
+
+			<div class="form-group changeable">
+				<label class="col-sm-3 control-label" for="edge">Associated
+					Edge Application:</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control sign-style"
+						th:field="*{edge}" placeholder="Associated Edge Application" />
+				</div>
+			</div>
+
+			<br />
+			<div class="row sign-style">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="btn-toolbar">
+						<input class="leftButton myButton" type='submit' name='save'
+							value='Submit' />
+					</div>
+				</div>
+			</div>
+
+		</form>
+	</div>
+
+</body>
+</html>

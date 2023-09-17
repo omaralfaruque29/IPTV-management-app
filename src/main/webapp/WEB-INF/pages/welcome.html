@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LiveStreamer</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/assets/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/assets/css/bootstrap-toggle.min.css}" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script th:src="@{/resources/assets/js/jquery.min.js}"
+	type="text/javascript">
+	
+</script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script th:src="@{/resources/assets/js/bootstrap.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/resources/assets/js/bootstrap-toggle.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/resources/assets/js/bootstrap-filestyle.js}"
+	type="text/javascript"></script>
+<script th:src="@{/resources/assets/js/pageScript.js}"
+	type="text/javascript"></script>
+<script th:src="@{/resources/assets/js/bootstrap-filestyle.js}"
+	type="text/javascript"></script>
+
+<!-- livestreamer resources starts here -->
+<link rel="shortcut icon" type="image/x-icon"
+	th:href="@{/resources/assets/images/icon/favicon.ico}" />
+<link rel="stylesheet"
+	th:href="@{/resources/assets/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/resources/assets/css/dashboard.css}" />
+<link rel="stylesheet" th:href="@{/resources/assets/css/style.css}" />
+<link rel="stylesheet" th:href="@{/resources/assets/css/menu.css}" />
+<!-- vertical menu -->
+<link rel="stylesheet"
+	th:href="@{/resources/assets/css/font-awesome.css}" />
+<!--JWPlayer6.10-->
+<!--<script type="text/javascript" src="js/jwplayer.js"></script>
+    <script type="text/javascript">jwplayer.key = "t3ZrGWGiSyOSH65RfspUrlcFsLyxRIVdZ8AAMQ==";</script>-->
+<script th:src="@{/resources/assets/js/F65hjNT7EeOf3CIACi0I_Q.js}"></script>
+<script th:src="@{/resources/assets/js/jquery.min.js}"></script>
+<!-- livestreamer resources ends here -->
+</head>
+<body>
+	<!-- mobile view start -->
+	<div class="container-fluid">
+		<div
+			class="hidden-sm col-sm-12 col-xs-12 hidden-md col-md-12 hidden-lg col-lg-12 header-bg">
+			<div id="mobile-header">
+				<div id="col-xs-12">
+					<div class="col-xs-3 tab-menu">
+						<a id="simple-menu" href="#sidr" class="sidrmenu"><img
+							th:src="@{/resources/assets/images/icon/menu.png}" /></a>
+					</div>
+					<div class="col-xs-6 text-center">
+						<div id="head-box">
+							<div id="header-icon">
+								<div class="dropdown">
+									<div class="logo-bg">
+										<img th:src="@{/resources/assets/images/icon/logo.png}"
+											width="100%" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-3 text-right tab-menu">
+						<a id="righttrigger" href="#rightmenu" class="sidrmenu"><img
+							th:src="@{/resources/assets/images/icon/select.png}" /></a>
+					</div>
+					<div id="sidr" style="background: #dddee0;">
+						<ul>
+
+						</ul>
+					</div>
+					<div id="rightmenu" style="background: #dddee0;">
+						<ul>
+							<div class="right-main">
+								<ul>000000
+								</ul>
+							</div>
+						</ul>
+					</div>
+					<header id="mainheader" class="mobile-hide">
+						<!-- Menu -->
+					</header>
+				</div>
+			</div>
+		</div>
+		<div
+			class="hidden-sm col-sm-12 col-xs-12 hidden-md col-md-12 hidden-lg col-lg-12 mob-header">
+			<div class="search-box">
+				<form th:action="@{/page/channelSearch/result}" method="post">
+					<div class="form-group" style="margin: 0px;">
+						<input type="text" name="tagName" value="" id="newtab-search-text"
+							placeholder="Search" /> <input type="submit"
+							id="newtab-search-submit" value="" />
+					</div>
+				</form>	
+				<!-- /input-group -->
+			</div>
+		</div>
+	</div>
+	<!-- mobile view end -->
+	<!-- ... main header start -->
+	<div class="container-fluid header-bg">
+		<div class="col-sm-12 hidden-xs col-xs-12 col-md-12 col-lg-12">
+			<div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
+				<div class="logo-bg">
+					<img th:src="@{/resources/assets/images/icon/logo.png}"
+						width="100%" />
+				</div>
+			</div>
+			<div class="col-sm-8 col-xs-2 col-md-2 col-lg-8">
+				<div class="search-box">
+					<form th:action="@{/page/channelSearch/result}" method="post">
+					<div class="form-group" style="margin: 0px;">
+						<input type="text" name="tagName" value="" id="newtab-search-text"
+							placeholder="Search" /> <input type="submit"
+							id="newtab-search-submit" value="" />
+					</div>
+				</form>	
+					<!-- /input-group -->
+				</div>
+			</div>
+			<div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
+				<div class="header-pro">
+					<div class="nav-collapse">
+						<ul class="nav pull-right ">
+							<div class="dropdown">
+								<a class="dropdown-toggle" href="#" data-toggle="dropdown"><strong
+									th:text="${username}"><img
+										th:src="@{/resources/assets/images/icon/profile-header.png}" />
+										&nbsp;&nbsp;</strong> <strong class="caret sign-t"></strong></a>
+								<div class="dropdown-menu sign-i">
+									<div class="e-box"></div>
+									<div class="e-box">
+										<li class="message-preview"><a href="#"> <span
+												class="pull-left"> <img class="media-object" alt="" />
+											</span>
+												<div class="media-body">
+													<h5 class="media-heading">
+														<strong style="color: black" th:text="${username}"></strong>
+													</h5>
+													<p class="small text-muted">
+														<i class="fa fa-clock-o"></i>
+													</p>
+													<div class="myButton">
+														<img
+															th:src="@{/resources/assets/images/icon/settings.png}" />
+													</div>
+													<div class="myButton" style="margin-right: 7px">Creator
+														Studio</div>
+												</div>
+
+										</a></li>
+									</div>
+									<div class="e-box">
+										<a th:href="@{/page/logout}" class="myButton">Sign Out</a>
+										<div class="myButton" style="margin-right: 50px">Add
+											Account</div>
+									</div>
+								</div>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ... main header end -->
+	<div id="responsive-admin-menu">
+		<!--Menu-->
+		<div id="menu">
+			<a th:href="@{/page/home}"><i class="icon-home"></i><span>Home</span></a> <a
+				href="#" title="My Account" class="submenu" name="media-sub"><i
+				class="icon-my-account"></i><span> My Account</span></a>
+			<!-- Media Sub Menu -->
+			<div id="media-sub">
+				<a href="#" title="Edit Profile"><i class="icon-edit-profile"></i><span>
+						Edit Profile</span></a> <a href="#" title="Account"><i
+					class="icon-account"></i><span> Account</span></a> <a href="#"
+					title="Change Password"><i class="icon-change-password"></i><span>Change
+						Password</span></a>
+			</div>
+			<a th:if="${Admin == 'Admin'}" href="#" title="Admin" class="submenu"
+				name="media-sub1"><i class="icon-my-account"></i><span>
+					Admin</span></a>
+			<!-- Media Sub Menu -->
+			<div id="media-sub1">
+				<a th:href="@{/page/channel/all/10/0}+'?i='" title="All Channels"><i
+					class="icon-edit-profile"></i><span> All Channels</span></a> <a
+					th:href="@{/page/vod/all/1}+'?i='" title="VOD"><i
+					class="icon-edit-profile"></i><span> VOD</span></a> <a
+					th:href="@{/page/user/all/10/0}+'?i='" title="User"><i
+					class="icon-edit-profile"></i><span>User</span></a> <a
+					th:href="@{/page/role/all/1}+'?i='" title="Role"><i
+					class="icon-edit-profile"></i><span>Role</span></a> <a
+					th:href="@{/page/country/all/10/0}+'?i='" title="Country"><i
+					class="icon-edit-profile"></i><span>Country</span></a> <a
+					th:href="@{/page/category/all/10/0}+'?i='" title="Category"><i
+					class="icon-edit-profile"></i><span>Category</span></a> <a
+					th:href="@{/page/language/all/10/0}+'?i='" title="Language"><i
+					class="icon-edit-profile"></i><span>Language</span></a> <a
+					th:href="@{/page/tag/all/10/0}+'?i='" title="Tag"><i
+					class="icon-edit-profile"></i><span>Tag</span></a> <a
+					th:href="@{/page/server/all/1}+'?i='" title="Server"><i
+					class="icon-edit-profile"></i><span>Server</span></a>
+			</div>
+			<!-- Media Sub Menu -->
+			<a th:href="@{/page/ownchannel/all/1}" title="My Channel"><i
+				class="icon-my-channel"></i><span> My Channel</span></a> <a href="#"
+				title="My Video"><i class="icon-my-video"></i><span> My
+					Video</span></a>
+			<!-- <a
+				href="" class="submenu" name="other-sub" title="Other Contents"><i
+				class="icon-plalist"></i><span> Playlist </span></a>
+			Other Contents Sub Menu
+			<div id="other-sub">
+				<a href="" title="Song"><i class="icon-play-all"></i><span>
+						Song </span></a> <a href="" title="Video"><i class="icon-play-all"></i><span>
+						Video</span></a> <a href="" title="Audio"><i class="icon-play-all"></i><span>
+						Audio</span></a> <a href="" title="Movie"><i class="icon-play-all"></i><span>
+						Movie</span></a>
+			</div> -->
+		</div>
+	</div>
+	<!--Menu-->
+	<div id="content-wrapper">
+		<div class="row">
+			<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+				<div class="container-fluid">
+
+
+					<div class="col-sm-12 col-xs-12 col-md-10 col-lg-10"
+						style="background-color: #dadada">
+
+						<div class="cover-bg">
+							<div class="cover-image">
+								<img th:src="@{/resources/assets/images/cover-photo.png}"
+									width="100%" />
+							</div>
+							<div class="profile-box">
+								<div class="photo-name">
+									<a href="#">
+										<div class="cover-icon">
+											<img th:src="@{/resources/assets/images/icon/photo-up.png}"
+												width="100%" />
+										</div>
+									</a>
+								</div>
+								<div class="pro-photo">
+									<div class="profile-bg">
+										<div class="profile-pic">
+											<img th:src="@{/resources/assets/images/profile-pic.jpg}"
+												width="100%" />
+											<div class="cover-tex-bg">
+												<a href="#"><span class="cover-tex">Change
+														Profile Picture</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pl-side">
+							<div class="container-fluid" style="background: white">
+								<div class="col-sm-8 col-xs-12 col-md-8 col-lg-8">
+									<h1 th:text="'Welcome '+${username}"></h1>
+								</div>
+								<div class="col-sm-4 col-xs-12 col-md-4 col-lg-4">
+									<div class="user-bg">
+										<div class="user-box">
+											<div class="user-left u-name">About</div>
+											<div class="user-right">
+												<a href="#" style="text-decoration: none">
+													<div class="rightButton myButton">Update</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="hidden-sm col-sm-2 hidden-xs col-xs-2 col-md-2 col-lg-2">
+						<div class="p-left">
+							<div class="thumble-box">
+								<div class="thumble-img">
+									<img th:src="@{/resources/assets/images/thumble/thumble1.jpg}"
+										width="100%" />
+								</div>
+								<div class="thumble-bottom">
+									<div class="thumble-description thumble-tex">
+										<strong class="channel-tex"> Bangla Comedy Natok
+											2014| Tritio Purush | Chanchol chowdhury... </strong> <br />
+										Description: by ATN TV &nbsp;&nbsp; Total Views: 28968
+									</div>
+								</div>
+							</div>
+							<div class="thumble-box">
+								<div class="thumble-img">
+									<img th:src="@{/resources/assets/images/thumble/thumble2.jpg}"
+										width="100%" />
+								</div>
+								<div class="thumble-bottom">
+									<div class="thumble-description thumble-tex">
+										<strong class="channel-tex"> Bangla Comedy Natok
+											2014| Tritio Purush | Chanchol chowdhury... </strong><br />
+										Description: by ATN TV &nbsp;&nbsp; Total Views: 28968
+									</div>
+								</div>
+							</div>
+							<div class="thumble-box">
+								<div class="thumble-img">
+									<img th:src="@{/resources/assets/images/thumble/thumble3.jpg}"
+										width="100%" />
+								</div>
+								<div class="thumble-bottom">
+									<div class="thumble-description thumble-tex">
+										<strong class="channel-tex"> Bangla Comedy Natok
+											2014| Tritio Purush | Chanchol chowdhury... </strong><br />
+										Description: by ATN TV &nbsp;&nbsp; Total Views: 28968
+									</div>
+								</div>
+							</div>
+							<div class="thumble-box">
+								<div class="thumble-img">
+									<img th:src="@{/resources/assets/images/thumble/thumble4.jpg}"
+										width="100%" />
+								</div>
+								<div class="thumble-bottom">
+									<div class="thumble-description thumble-tex">
+										<strong class="channel-tex"> Bangla Comedy Natok
+											2014| Tritio Purush | Chanchol chowdhury... </strong><br />
+										Description: by ATN TV &nbsp;&nbsp; Total Views: 28968
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- List & Grid View End-->
+	<!-- footer start  -->
+	<div class="container-fluid footer-bg">
+		<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+			<div class="col-sm-1 hidden-xs col-xs-2 col-md-2 col-lg-2"></div>
+			<div class="col-sm-5 col-xs-12 col-md-8 col-lg-6 footer-tex">
+				<ul class="nav nav-pills">
+					<li role="presentation"><a href="#">Blog</a></li>
+					<li role="presentation"><a href="#">Advertising</a></li>
+					<li role="presentation"><a href="#">Jobs</a></li>
+					<li role="presentation"><a href="#">Help</a></li>
+					<li role="presentation"><a href="#">Site Map</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-6 col-xs-12 col-md-4 col-lg-4">
+				<ul class="nav nav-pills">
+					<li role="presentation"><a href="#">Tearm and use</a></li>
+					<li role="presentation"><a href="#">Privacy Policy </a></li>
+					<li role="presentation"><a href="#">@livestreamer.com</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- footer end  -->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+	<script src='js/menu.js'></script>
+	<script src='js/script.js'></script>
+	<script src="js/home-list.js"></script>
+
+	<!-- vertical menu  -->
+	<script type="text/javascript">
+		eval(function(p, a, c, k, e, r) {
+			e = function(c) {
+				return c.toString(a)
+			};
+			if (!''.replace(/^/, String)) {
+				while (c--)
+					r[e(c)] = k[c] || e(c);
+				k = [ function(e) {
+					return r[e]
+				} ];
+				e = function() {
+					return '\\w+'
+				};
+				c = 1
+			}
+			;
+			while (c--)
+				if (k[c])
+					p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+			return p
+		}
+				(
+						'$(o).i(4(){$("p").q(\'<r t="u" m="9/3-6-0.9"/>\');s a="";$("#3-0").c(4(){$("#3-6-0 #0").g()});$(h).f(4(){$("#3-6-0 #0").j("k")});$("#0 a.l").c(4(){d(a!=""){$("#"+a).n("a").e("7");$("#"+a).b("8")};d(a==$(1).5("2")){$("#"+$(1).5("2")).b("8");$(1).e("7");a=""}v{$("#"+$(1).5("2")).w("8");a=$(1).5("2");$(1).x("7")};y z})});',
+						36,
+						36,
+						'menu|this|name|responsive|function|attr|admin|downarrow|fast|css||slideUp|click|if|removeClass|resize|slideToggle|window|ready|removeAttr|style|submenu|href|prev|document|head|append|link|var|rel|stylesheet|else|slideDown|addClass|return|false'
+								.split('|'), 0, {}))
+	</script>
+
+
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#simple-menu').sidr({
+				name : 'sidr',
+				side : 'left'
+			});
+			$('#righttrigger').sidr({
+				name : 'rightmenu',
+				side : 'right'
+			});
+		});
+	</script>
+</body>
+</html>
